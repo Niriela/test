@@ -1,0 +1,2 @@
+javac -d . framework/annotations/Url.java test/urlAnnotations/UrlController.java test/urlAnnotations/Main.java
+java test.urlAnnotations.Main
