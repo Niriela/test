@@ -1,2 +1,8 @@
 javac -d . framework/annotations/Url.java test/urlAnnotations/UrlController.java test/urlAnnotations/Main.java
 java test.urlAnnotations.Main
+
+javac -cp . framework/Main.java
+
+cd d:\ITU_S5\Naina\FRAMEWORK\Sprint_framework; java -cp . framework.Main
+
+javac -cp . framework/Main.java test/testController/*.java framework/annotations/Controller.java
