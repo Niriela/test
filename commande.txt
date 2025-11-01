@@ -6,3 +6,5 @@ javac -cp . framework/Main.java
 cd d:\ITU_S5\Naina\FRAMEWORK\Sprint_framework; java -cp . framework.Main
 
 javac -cp . framework/Main.java test/testController/*.java framework/annotations/Controller.java
+
+ javac -d . test\Main\*.java test\Main\AnnotationScanner.java test\testController\*.java framework\annotations\Controller.java
