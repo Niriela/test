@@ -2,6 +2,7 @@ package test.urlAnnotations;
 
 import framework.annotations.*;
 
+
 public class UrlController {
     @Url("/test1")
     public void sayHello() {
