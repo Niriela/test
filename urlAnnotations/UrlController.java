@@ -42,5 +42,15 @@ public class UrlController {
         return mv;
     }
 
+<<<<<<< Updated upstream
+    @Url("/test/{id}")
+    public String testWithId() {
+        return "testWithId";
+    }
+    
+=======
+    
+
+>>>>>>> Stashed changes
 
 }
