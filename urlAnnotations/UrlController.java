@@ -42,5 +42,10 @@ public class UrlController {
         return mv;
     }
 
+    @Url("/test/{id}")
+    public String testWithId() {
+        return "testWithId";
+    }
+    
 
 }
