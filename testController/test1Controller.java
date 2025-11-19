@@ -7,7 +7,7 @@ import framework.annotations.Url;
 public class test1Controller {
 
      @Url("/test1controller")
-    public void sayHello() {
-        System.out.println("C'est un test de salutation");
+    public String sayHello() {
+         return "C'est un test de salutation";
     }
 }
