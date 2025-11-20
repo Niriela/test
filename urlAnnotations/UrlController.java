@@ -41,11 +41,6 @@ public class UrlController {
         mv.addData("ville", "Antananarivo");
         return mv;
     }
-
-    @Url("/test/{id}")
-    public String testWithId() {
-        return "testWithId";
-    }
     
 
 }
