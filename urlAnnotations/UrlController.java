@@ -42,7 +42,7 @@ public class UrlController {
         return mv;
     }
 
-    @Url("/test/{id}")
+    @Url("/{id}")
     public String testWithId() {
         return "testWithId";
     }
