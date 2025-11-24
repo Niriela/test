@@ -2,6 +2,7 @@ package test.urlAnnotations;
 
 import framework.annotations.*;
 import framework.views.ModelView;
+import framework.annotations.Param;
 
 @Controller
 public class FormController {
@@ -22,6 +23,9 @@ public class FormController {
         return "Reçu : id=" + id + ", nom=" + nom;
     }
 
-    
+    @Url("/form/save1")
+    public String getId(@Param("id") int identifiant, @Param("nom") String nom) {
+        return "Recu : identifiant=" + identifiant + ", nom=" + nom;
+    }
 
 }
