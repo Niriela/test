@@ -13,7 +13,12 @@ public class FormController {
     }
 
     @Url("/form/save")
-    public String saveForm(int id, String nom) {
+    public String saveForm(@Param("id") int id, @Param("nom") String nom) {
+        return "Reçu : id=" + id + ", nom=" + nom;
+    }
+
+    @Url("/form/saveTest")
+    public String saveForm1(int id, String nom) {
         // Affiche les valeurs reçues du formulaire
         return "Reçu : id=" + id + ", nom=" + nom;
     }
