@@ -15,7 +15,7 @@ public class UserController {
     
     @PostMapping("/user")
     public String saveUser(@Param("firstName") String firstName, @Param("lastName") String lastName, @Param("email") String email) {
-        return "Utilisateur créé : " + firstName + " " + lastName + " (" + email + ")";
+        return "Utilisateur cree : " + firstName + " " + lastName + " (" + email + ")";
     }
 
     @GetMapping("/user/list")
