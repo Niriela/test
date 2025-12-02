@@ -1,11 +1,14 @@
 package test.urlAnnotations;
 
+import java.util.Map;
+
 import framework.annotations.*;
 import framework.views.ModelView;
 
 @Controller
 public class UserController {
 
+    // Sprint6
     @GetMapping("/user")
     public ModelView showUserForm() {
         ModelView mv = new ModelView("/user.jsp");
@@ -25,7 +28,6 @@ public class UserController {
         return mv;
     }
 
-    
     // @PostMapping("/user/save")
     // public String saveUser(@Param("firstName") String firstName, @Param("lastName") String lastName, @Param("email") String email) {
     //     return "Utilisateur créé : " + firstName + " " + lastName + " (" + email + ")";
@@ -35,4 +37,19 @@ public class UserController {
     // public String registerUser(String firstName, String lastName, String email) {
     //     return "Utilisateur enregistré : " + firstName + " " + lastName + " (" + email + ")";
     // }
+
+
+    // Sprint8-Map<String, Object>4
+    @PostMapping("/save")
+    public String saveTest(Map<String, Object> values) {
+        System.out.println("Données du formulaire:");
+        values.forEach((key, value) -> System.out.println(key + " = " + value));
+        return "Formulaire sauvegarde avec succes!";
+    }
+
+
+
+
+
+
 }
