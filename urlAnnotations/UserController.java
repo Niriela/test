@@ -42,7 +42,7 @@ public class UserController {
     // Sprint8-Map<String, Object>4
     @PostMapping("/save")
     public String saveTest(Map<String, Object> values) {
-        System.out.println("Données du formulaire:");
+        System.out.println("Donnees du formulaire:");
         values.forEach((key, value) -> System.out.println(key + " = " + value));
         return "Formulaire sauvegarde avec succes!";
     }

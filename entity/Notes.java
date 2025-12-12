@@ -4,7 +4,7 @@ package test.entity;
  * Classe Notes contenant les informations sur les notes d'un étudiant
  */
 public class Notes {
-    private String moyenne;
+    private Double[] moyenne;
     private String matiere;
     private double note;
 
@@ -13,11 +13,11 @@ public class Notes {
     }
 
     // Getters et Setters
-    public String getMoyenne() {
+    public Double[] getMoyenne() {
         return moyenne;
     }
 
-    public void setMoyenne(String moyenne) {
+    public void setMoyenne(Double[] moyenne) {
         this.moyenne = moyenne;
     }
 
@@ -39,8 +39,17 @@ public class Notes {
 
     @Override
     public String toString() {
+        String moyStr = "null";
+        if (moyenne != null) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < moyenne.length; i++) {
+                if (i > 0) sb.append(", ");
+                sb.append(moyenne[i]);
+            }
+            moyStr = sb.toString();
+        }
         return "Notes{" +
-                "moyenne='" + moyenne + '\'' +
+                "moyenne='" + moyStr + '\'' +
                 ", matiere='" + matiere + '\'' +
                 ", note=" + note +
                 '}';
