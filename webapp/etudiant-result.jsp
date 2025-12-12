@@ -25,7 +25,20 @@
     <h2>Informations sur les Notes</h2>
     <p><strong>Matière:</strong> <%= etudiant.getNotes().getMatiere() %></p>
     <p><strong>Note:</strong> <%= etudiant.getNotes().getNote() %> / 20</p>
-    <p><strong>Moyenne:</strong> <%= etudiant.getNotes().getMoyenne() %></p>
+    <p><strong>Moyenne(s):</strong>
+        <%
+            Double[] moy = etudiant.getNotes().getMoyenne();
+            if (moy != null) {
+                for (int i = 0; i < moy.length; i++) {
+        %>
+            <%= moy[i] %><% if (i < moy.length - 1) { out.print(", "); } %>
+        <%
+                }
+            } else {
+                out.print("Aucune");
+            }
+        %>
+    </p>
     <% } %>
     
     <% } else { %>

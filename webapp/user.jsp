@@ -2,7 +2,9 @@
 <html>
 <head><title>Test JSP</title></head>
 <body>
-  <form method="POST" action="${pageContext.request.contextPath}/user">
+        <h1> ETU003348 </h1>
+
+  <form method="POST" action="${pageContext.request.contextPath}/save">
     <p> Nom <input type="text" name="firstName" required> </p>
     <p> Prénom <input type="text" name="lastName" required> </p>
     <p> Email <input type="email" name="email" required> </p>
