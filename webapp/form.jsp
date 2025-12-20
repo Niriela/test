@@ -6,7 +6,8 @@
     <title>Formulaire d'Enregistrement Étudiant</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container"> 
+        <h1> ETU003348 </h1>
         <h1>📝 Enregistrement Étudiant</h1>
         
         <div class="info">
@@ -55,8 +56,11 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="moyenne">Moyenne Générale <span style="color: red;">*</span></label>
-                    <input type="text" id="moyenne" name="e.notes.moyenne" required placeholder="Excellent">
+                    <label for="moyenne">Moyennes (plusieurs valeurs possible) <span style="color: red;">*</span></label>
+                    <input type="number" id="moyenne1" name="e.notes.moyenne[]" step="0.01" required placeholder="15.50">
+                    <input type="number" id="moyenne2" name="e.notes.moyenne[]" step="0.01" placeholder="12.00">
+                    <input type="number" id="moyenne3" name="e.notes.moyenne[]" step="0.01" placeholder="14.25">
+                    <p style="font-size:0.9em;color:#666;">Si vous voulez 1 seule valeur, remplissez le premier champ.</p>
                 </div>
             </div>
 
@@ -67,7 +71,7 @@
         <hr style="margin-top: 40px; border: none; border-top: 1px solid #eee;">
 
         <h2 style="color: #666; margin-top: 30px;">🧪 Test Complexe (Optionnel)</h2>
-        <form method="POST" action="${pageContext.request.contextPath}/saveComplex" style="margin-top: 20px;">
+        <form method="POST" action="${pageContext.request.contextPath}/saveJsonComplex" style="margin-top: 20px;">
             <div class="form-group">
                 <label>ID (paramètre simple) <span style="color: red;">*</span></label>
                 <input type="number" name="id" required placeholder="123">
@@ -84,8 +88,9 @@
             </div>
 
             <div class="form-group">
-                <label>Moyenne <span style="color: red;">*</span></label>
-                <input type="text" name="e.notes.moyenne" required placeholder="Bon">
+                <label>Moyennes <span style="color: red;">*</span></label>
+                <input type="number" name="e.notes.moyenne[]" required step="0.01" placeholder="13.50">
+                <input type="number" name="e.notes.moyenne[]" step="0.01" placeholder="14.00">
             </div>
 
             <button type="submit">✓ Test Complexe</button>
