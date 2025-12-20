@@ -8,6 +8,7 @@ import framework.annotations.Param;
 import framework.annotations.PostMapping;
 import framework.views.ModelView;
 import test.entity.User;
+import test.util.FileUploadUtil;
 
 @Controller
 public class UploadController {
@@ -32,21 +33,39 @@ public class UploadController {
 
     @PostMapping("/user/upload")
     public String saveDonnees(User user, Map<String, byte[]> files) {
-        System.out.println("=== Données normales ===");
-        if (user != null) {
-            System.out.println("firstName = " + user.getFirstName());
-            System.out.println("lastName = " + user.getLastName());
-        } else {
-            System.out.println("Aucune donnée utilisateur reçue.");
+        try {
+            System.out.println("=== Données normales ===");
+            if (user != null) {
+                System.out.println("firstName = " + user.getFirstName());
+                System.out.println("lastName = " + user.getLastName());
+            } else {
+                System.out.println("Aucune donnée utilisateur reçue.");
+            }
+
+            System.out.println("\n=== Fichiers reçus ===");
+            files.forEach((key, fileBytes) -> {
+                int size = (fileBytes != null) ? fileBytes.length : 0;
+                System.out.println("Nom du fichier: " + key);
+                System.out.println("Taille: " + size + " bytes");
+                System.out.println(FileUploadUtil.getFileInfo(fileBytes, key));
+                System.out.println("---");
+            });
+
+            // Sauvegarder tous les fichiers
+            Map<String, String> savedFiles = FileUploadUtil.saveFiles(files);
+            
+            System.out.println("\n=== Fichiers sauvegardés ===");
+            savedFiles.forEach((originalName, savedPath) -> {
+                System.out.println(originalName + " -> " + savedPath);
+            });
+
+            return "Données et fichiers sauvegardés avec succès! " + savedFiles.size() + " fichier(s) uploadé(s).";
+            
+        } catch (Exception e) {
+            System.err.println("Erreur lors de l'upload: " + e.getMessage());
+            e.printStackTrace();
+            return "Erreur lors de l'upload: " + e.getMessage();
         }
-
-        System.out.println("\n=== Fichiers ===");
-        files.forEach((key, fileBytes) -> {
-            int size = (fileBytes != null) ? fileBytes.length : 0;
-            System.out.println(key + " = " + size + " bytes");
-        });
-
-        return "Données et fichiers reçus avec succès!";
     }
 
     // @PostMapping("/user/upload")
