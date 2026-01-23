@@ -1,4 +1,5 @@
-package testController;
+package test.testController;
+
 import framework.annotations.*;
 import framework.views.ModelView;
 import test.entity.*;
