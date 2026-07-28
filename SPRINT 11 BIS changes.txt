@@ -1,0 +1,19 @@
+4. Comment le tester
+
+Le scénario de validation est le suivant:
+
+ouvre /admin/panel sans t’authentifier;
+résultat attendu: Unauthorized;
+ouvre /admin/login, saisis chef, puis soumets;
+retourne ensuite sur /admin/panel;
+résultat attendu: la page admin-panel.jsp s’affiche.
+
+
+CE QUI A CHANGER DANS LE CODE :
+Le scénario ajouté sert à tester la protection d’une route par @Authorized et @Role("chef"). Un nouveau controller expose /admin/login pour créer une session, puis /admin/panel qui n’est accessible que si la session contient l’état d’authentification et le bon rôle. Les deux pages JSP servent à piloter le test depuis le navigateur: une page de login pour poser la session, puis une page protégée pour vérifier que le framework bloque ou autorise correctement l’accès.
+
+Fichiers ajoutés dans le projet test:
+
+AdminController.java
+admin-login.jsp
+admin-panel.jsp
